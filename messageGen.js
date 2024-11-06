@@ -1,36 +1,54 @@
-console.log ("LIST OF MESSAGES")
-console.log("-----------------------------------")
-let array =["The best use of life is LOVE", 
-            "The best expression of love is TIME",
-            "The best time to love is NOW",
-            "There is a purpose behind every situation( problem and fortune)."  ];
 
-for(let i=0; i < array.length; i++)
-  console.log(array[i]);
+let getRandom= num =>{
+    return Math.round(Math.random()*num);
+}
 
-console.log("")
+let arrayCollections ={
+    lesson1: ["The best use of life is LOVE.", 
+            "The best expression of love is TIME.",
+            "The best time to love is NOW."  ],
+
+    lesson2: ["Every temptation is an opportunity to do good.",
+              "It is easier to stay out of temptation than getting out of it.",
+              "The quicket way to neutralise temptation allure is to turn your attention to something else."],
+     
+    lesson3:["Observe your spiritual gift.",
+              "Listen to your heart.",
+              "Use your ability."]
+}
+
+let messageGen =[];
+
+for(let lesson in arrayCollections) {
+    let selectedOption = getRandom(arrayCollections[lesson].length);
+    
+    switch (lesson){
+        case 'lesson1':
+         messageGen.push(arrayCollections[lesson][selectedOption])
+         break;
+     
+        case 'lesson2':
+         messageGen.push(arrayCollections[lesson][selectedOption])
+         break;
+     
+        case 'lesson3':
+         messageGen.push(arrayCollections[lesson][selectedOption])
+         break;
+     
+        default:
+         messageGen.push( "There is a purpose behind every situation( problem and fortune)");
+         
+       }
+
+  };
 console.log("THE RANDOM MESSAGE")
 console.log("-----------------------------------")
-const messageGen= () => {
-   let random = Math.round(Math.random()*3);
-   switch (random){
-    case 0:
-     return "The best use of life is LOVE";
-     break;
+console.log("")
 
-    case 1:
-     return "The best expression of love is TIME";
-     break;
+const formatMessage =(messages)=>{
+    let format = messages.join("\n");
+    console.log(format);
+}
 
-    case 2:
-     return"The best time to love is NOW";
-     break;
+formatMessage(messageGen);
 
-    case 3:
-     return "There is a purpose behind every situation( problem and fortune)";
-     break;
-    
-  }
-};
-
-console.log(messageGen());
